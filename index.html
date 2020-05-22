@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section><h2>React</h2></section>
+					<section>
+						<figure>
+							<img data-src="img/react.png">
+							<figcaption><b>React</b> is one of the most popular libraries for creating complex Frontend applications.</figcaption>
+						</figure>
+					</section>
+					<section>
+						<figure>
+							<figcaption>The simplest example on React looks like this:</figcaption>
+							<img data-src="img/hello_world.jpg">
+							<figcaption class="fragment fade-up">It draws a title on the page with the text "<em>Hello, world!</em>"</figcaption>
+						</figure>
+						<p class="fragment fade-up">React is a tool for creating user interfaces. Its main task is to ensure that what can be seen on web pages is displayed on the screen. React greatly facilitates the creation of interfaces by dividing each page into small fragments. We call these 	fragments <b>components</b>.</p>
+					</section>
+				</section>
+				<section>
+					<section>React Components</section>
+					<section>
+						<figure>
+							<img data-src="img/react_components.png">
+							<figcaption>A <b>React component</b> is a piece of code that represents part of a web page. Each component is a JavaScript 	function that returns a piece of code representing a fragment of a page.</figcaption>
+						</figure>
+					</section>
+					<section>
+						<figure>
+							<figcaption>The easiest way to declare a component is to write a JavaScript function - it is a <b><em>functional component</em></b>.</figcaption>
+							<img data-src="img/functional_component.jpg">
+						</figure>
+						<figure class="fragment fade-up">
+							<figcaption>A component can be declared in another way. To do this, use the ES6 class. Both components are equivalent in terms of React.</figcaption>
+							<img data-src="img/classes_of_component.jpg">
+						</figure>
+					</section>
+					<section>
+						<figure>
+							<figcaption>A component declared as a function or class should never modify its properties. Look at this sum function:</figcaption>
+							<img data-src="img/pure_function.jpg">
+						</figure>
+						<p class="fragment fade-up">Such functions are called “<em>pure</em>”. Because they do not change their arguments and always return the same result for the same arguments.</p>
+						<p class="fragment fade-up">React is very flexible, but it has one strict rule:<br>
+						<b>All React components should work as pure functions in relation to their properties</b>.</p>
+					</section>
+				</section>
+				<section>
+					<section>Rendering of ReactDOM</section>
+					<section>
+						<figure>
+							<img data-src="img/rendering_of_reactDOM.jpg">
+							<figcaption>Elements are the smallest building blocks of a React application. The item describes what you want to see on the screen. The <b>React DOM</b> takes care of updating the DOM to fit React elements itself.</figcaption>
+						</figure>
+					</section>
+					<section>
+						<figure>
+							<figcaption>This &lt;div&gt; tag in the HTML file is called the <b>root DOM node</b>. Everything inside it will be managed using the React DOM. Applications that are built using React only typically have one root DOM node.</figcaption>
+							<img data-src="img/root.jpg">
+						</figure>
+						<figure class="fragment fade-up">
+							<figcaption>To draw a React element to the root DOM node, you need to pass them together to <em>ReactDOM.render()</em></figcaption>
+							<img data-src="img/render.jpg">
+						</figure>
+					</section>
+					<section>
+						<p>React elements are immutable. Once an item has been created, changing its attributes or descendants is not possible. An element is like a single frame in a movie: it is a UI at a particular point in time. We know only one way to update the UI: creating a new element and passing it to <b>ReactDOM.render()</b>.</p>
+						<p class="fragment fade-up">The React DOM compares the element and its descendants from the last call render() with the element from the previous call render(). Then it updates the DOM only if necessary to bring the DOM to the desired state.</p>
+					</section>
+				</section>
+				<section>
+					<section>JSX - JavaScript XML</section>
+					<section>
+						<figure>
+							<img data-src="img/jsx.png">
+							<figcaption><b>JSX</b> is a preprocessor that adds XML syntax to JavaScript. Instead of putting JavaScript in HTML, JSX allows us to put HTML in JavaScript.</figcaption>
+						</figure>
+						<p class="fragment fade-up">We can put HTML elements in the DOM without any <em>createElement()</em> or <em>appendChild()</em> methods.</p>
+					</section>
+					<section>
+						<figure>
+							<img data-src="img/jsx_sugar.jpg">
+							<figcaption>This syntax is not a string and not HTML. This is JavaScript syntax sugar called JSX. Recommended using JSX with React. You are not required to use JSX, but JSX makes it easier to write React applications.</figcaption>
+						</figure>
+						<p class="fragment fade-up">JSX converts HTML tags into react elements. JSX can be used on its own. This is not part of React.</p>
+					</section>
+					<section>
+						<figure>
+							<figcaption>We can do with JSX all that with a regular JavaScript object (use inside <em>if</em> and <em>for</em>, assign it to variables, accept as an argument and return from functions).</figcaption>
+							<img data-src="img/jsx_example.jpg">
+						</figure>
+						<p class="fragment fade-up"><b>After compilation, JSX expressions become regular JavaScript objects</b>. Because JSX is closer to JavaScript than to HTML, the React DOM uses the camelNotation instead of the HTML attribute names.</p>
+					</section>
+				</section>
+				<section>
+					<section>State and Processing events</section>
+					<section>
+						<p>React components has a built-in state object. <b>State</b> is a tool that allows you to update the user interface based on events. When the user clicks the button, the state changes, and then the user interface is updated.</p>
+						<p class="fragment fade-up">We can find out the state of a component using the <em>this.state</em> construct. In the render function, <em>this</em> always refers to the component in which it is located.</p>
+						<p class="fragment fade-up">We want to respond to events. This is done through a function that handles events. These functions are called <b>event</b> handlers. The function receives the event object as an argument and can, if necessary, use it.</p>
+					</section>
+					<section>
+						<p>When handling events inside React elements:</p>
+						<ul class="fragment fade-up">
+							<li><em>React events are named using camelCase notation</em>;</li>
+							<li><em>Using JSX as an event handler we pass a function</em>;</li>
+							<li><em>In React, we cannot return false to prevent the default behavior. We should call preventDefault()</em>.</li>
+						</ul>
+						<figure class="fragment fade-up">
+							<img data-src="img/difference1.jpg">
+							<img data-src="img/difference2.jpg">
+						</figure>
+					</section>
+				</section>
+				<section>
+					<section>Asynchronous setState method</section>
+					<section>
+						<p>When the state of a component changes, it will call the render function again. We can change the state using <em>this.setState()</em> if we pass this function an object representing the new state. The component on the page will always represent its current state. React can independently provide this component behavior.</p>
+						<p class="fragment fade-up">Calling <b>setState</b> does not change the state instantly. React waits a bit to see if any other changes need to be made, and only then does it make a state change. This means that you cannot know exactly what the state of the component will be after calling setState.</p>
+					</section>
+					<section>
+						<p>There are 3 things you need to know about <em>setState()</em>.</p>
+						<ol>
+							<li class="fragment fade-up">Do not modify the state directly. To correctly modify the state of a component, use the <em>setState()</em> method. <em>This.state</em> can be set only in the constructor!</li>
+							<li class="fragment fade-up">Status updates can be asynchronous. So you don't have to rely on values ​​to calculate the next state.</li>
+							<li class="fragment fade-up">Status updates merge. When you call <em>setState()</em>, React merges the current state and the object you provided. Further, the variables can be updated independently using separate calls <em>setState()</em>.</li>
+						</ol>
+					</section>
+					<section>
+						<figure>
+							<figcaption>Let's look at the following examples:</figcaption>
+							<img class="fragment fade-up" data-src="img/set_state1.jpg">
+							<img class="fragment fade-up" data-src="img/set_state2.jpg">
+							<img class="fragment fade-up" data-src="img/set_state3.jpg">
+						</figure>
+					</section>
+				</section>
+				<section>
+					<section>Properties (props)</section>
+					<section>
+						<p>Props are arguments passed into React components. To send props into a component, use the same syntax as HTML attributes. React Props are read-only! You will get an error if you try to change their value.</p>
+						<figure>
+							<img class="fragment fade-up" data-src="img/props.jpg">
+						</figure>
+					</section>
+					<section>
+						<p>If your component has a constructor function, the props should always be passed to the constructor and also to the React.Component via the <em>super()</em> method.</p>
+						<figure>
+							<img class="fragment fade-up" data-src="img/super.jpg">
+						</figure>
+						<p class="fragment fade-up">Props allows components to communicate to each other. How about passing state to components? You can pass state to other components, by using <b>props</b>!</p>
+					</section>
+					<section>
+						<p>Entities in the React <b>Props</b> and <b>States</b> are two different things, although it may hold the same thing.</p>
+						<figure>
+							<img class="fragment fade-up" data-src="img/state_vs_props.jpg">
+						</figure>
+						<p class="fragment fade-up">Whatever you keep in yourself, that is <em>“state”</em>. To convey information to other people, you pass <em>“props”</em>.</p>
+					</section>
+				</section>
+				<section>
+					<section>Links (refs)</section>
+					<section>
+						<p>Materials:</p>
+						<ul class="fragment fade-up">
+						<li><a href="https://www.w3schools.com/react/default.asp">React Tutorial</a></li>
+						<li><a href="https://learn-reactjs.ru/tutorial">React basics</a></li>
+						<li><a href="https://learn.javascript.ru/screencast/react">Screencast React</a></li>
+						<li><a href="https://medium.com/@alserembani94/react-stuff-props-vs-states-6cd70e29efff">React stuff - Props vs States</a></li>
+						<li><a href="https://habr.com/ru/company/ruvds/blog/343022/">React: всё, что нужно знать для начала работы</a></li>
+					</section>
+				</section>
+				<section>Thanks for attention</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js' },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
